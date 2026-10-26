@@ -1,12 +1,12 @@
-/* 1. Override the hardcoded 248px dropdown width inline styles */
+/* 1. Widen the dropdown container (bumped from ~380px to 470px) */
 [data-testid="model-picker-menu"],
 .ui-model-picker__menu {
   width: auto !important;
-  min-width: 370px !important;
-  max-width: 420px !important;
+  min-width: 470px !important;
+  max-width: 520px !important;
 }
 
-/* 2. Expand menu rows to fill the new width */
+/* 2. Ensure row stretches across the full width */
 li[role="menuitem"][data-component="menu-row"] {
   width: 100% !important;
 }
@@ -24,17 +24,81 @@ li[role="menuitem"][data-component="menu-row"] {
   min-width: 0 !important;
 }
 
-/* 4. Keep name and tags grouped together on the left */
+/* 4. Prevent model name & chips from being squeezed or cut off */
 .ui-model-picker__item-content-name {
-  flex: 0 1 auto !important;
-  min-width: 0 !important;
-  margin-right: 8px !important;
+  flex: 0 0 auto !important;
+  margin-right: 12px !important;
 }
 
-/* 5. Push the price badge to the right, before 'Edit' */
+/* 5. Modifier Tags Container */
+.cursor-mod-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-left: 6px !important;
+  vertical-align: middle !important;
+}
+
+/* Base Pill Style */
+.cursor-mod-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 10px !important;
+  line-height: 1 !important;
+  padding: 2px 5px !important;
+  border-radius: 3px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.1px !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+/* Context sizes (e.g. 1M) - Subtle Blue */
+.cursor-mod-context {
+  color: #60a5fa !important;
+  background-color: rgba(96, 165, 250, 0.12) !important;
+  border: 1px solid rgba(96, 165, 250, 0.25) !important;
+}
+
+/* High Reasoning Tier - Warm Amber */
+.cursor-mod-high {
+  color: #fbbf24 !important;
+  background-color: rgba(251, 191, 36, 0.12) !important;
+  border: 1px solid rgba(251, 191, 36, 0.25) !important;
+}
+
+/* Medium Tier - Slate Neutral */
+.cursor-mod-medium {
+  color: #94a3b8 !important;
+  background-color: rgba(148, 163, 184, 0.1) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+}
+
+/* Low Tier - Dim Muted */
+.cursor-mod-low {
+  color: #71717a !important;
+  background-color: rgba(113, 113, 122, 0.1) !important;
+  border: 1px solid rgba(113, 113, 122, 0.2) !important;
+}
+
+/* Speed Mode (Fast) - Emerald Green */
+.cursor-mod-speed {
+  color: #34d399 !important;
+  background-color: rgba(52, 211, 153, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+}
+
+/* Generic Fallback */
+.cursor-mod-generic {
+  color: var(--cursor-text-tertiary, #a1a1aa) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 6. Pricing Badge (Right-Aligned with dedicated spacing) */
 .cursor-token-pricing-badge {
   margin-left: auto !important;
-  margin-right: 8px !important;
+  margin-right: 12px !important;
   font-size: 11px !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   font-weight: 500 !important;
@@ -46,4 +110,9 @@ li[role="menuitem"][data-component="menu-row"] {
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   line-height: 1.2 !important;
+}
+
+/* Ensure the right action section (Reset / Edit buttons) has space */
+.ui-menu__item-right {
+  flex-shrink: 0 !important;
 }
