@@ -1,0 +1,49 @@
+/* 1. Override the hardcoded 248px dropdown width inline styles */
+[data-testid="model-picker-menu"],
+.ui-model-picker__menu {
+  width: auto !important;
+  min-width: 370px !important;
+  max-width: 420px !important;
+}
+
+/* 2. Expand menu rows to fill the new width */
+li[role="menuitem"][data-component="menu-row"] {
+  width: 100% !important;
+}
+
+/* 3. Allow item contents to expand across the row */
+.ui-menu__item-content {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+.ui-model-picker__item-content {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* 4. Keep name and tags grouped together on the left */
+.ui-model-picker__item-content-name {
+  flex: 0 1 auto !important;
+  min-width: 0 !important;
+  margin-right: 8px !important;
+}
+
+/* 5. Push the price badge to the right, before 'Edit' */
+.cursor-token-pricing-badge {
+  margin-left: auto !important;
+  margin-right: 8px !important;
+  font-size: 11px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: 500 !important;
+  color: var(--cursor-text-tertiary, #8b949e) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  line-height: 1.2 !important;
+}
